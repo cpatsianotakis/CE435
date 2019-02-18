@@ -28,15 +28,8 @@
 
 module gray_4bits (clk, clk_en, rst, gray_out)
   input clk, clk_en, rst;
+  output [3:0] gray_out;
   reg [3:0] state;
-  wire gray_out;
-
-  parameter N_BITS = 4;
-  integer i;
-
-  reg [3:0] prev_state;
-  reg LSB;
-  reg non_zero_flag;
 
   always @(posedge clk or rst) 
    begin
@@ -45,55 +38,38 @@ module gray_4bits (clk, clk_en, rst, gray_out)
      if ( rst )
       begin
         
-        LSB = 0;
-
-        for ( i = 0; i < N_BITS; i = i + 1)
-         begin
-           
-           state [i] = 0;
-           prev_state [i] = 0;
-         end
+        state = 4'b0000;
 
       end
-
-     if ( clk_en )
+    else
       begin
-        
-        prev_state = state;
+      
+        case ( gray_out ):
 
-        if ( LSB == 1 )
-         begin           
-           state [0] = ~ state [0];
-         end
-
-        if ( state [0] == 1 && prev_state [0] == 0 )
-         begin
-           state [1] = ~ state [1];
-         end
-
-        for ( i = 2; i < N_BITS - 1; i = i + 1)
-         begin
-          
-          if ( state [i-1] == 1 )
-           begin
-             
-            for ( j = i -2; j > 0; j = j - 1)   
-              if ( state [j] == 1 )
-                non_zero_flag = 1;
-
-            if ( non_zero_flag == 0 )
-
-           end
-           
-         end
-
-        if
+          4'b0000: state = 4'b0001;
+          4'b0001: state = 4'b0011;
+          4'b0011: state = 4'b0010;
+          4'b0010: state = 4'b0110;
+          4'b0110: state = 4'b0111;
+          4'b0111: state = 4'b0101;
+          4'b0101: state = 4'b0100;
+          4'b0100: state = 4'b1100;
+          4'b1100: state = 4'b1101;
+          4'b1101: state = 4'b1111;
+          4'b1111: state = 4'b1110;
+          4'b1110: state = 4'b1010;
+          4'b1010: state = 4'b1011;
+          4'b1011: state = 4'b1001;
+          4'b1001: state = 4'b1000;
+          4'b1000: state = 4'b0000;
+          endcase
 
 
       end
-
-    end
      
-    assign gray_out = state;
-  
+  end
+
+
+  assign gray_out = state;
+
 endmodule

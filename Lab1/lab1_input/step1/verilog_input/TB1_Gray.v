@@ -23,15 +23,30 @@ module TB1;
   // Initial statement for signal initialization (reset, clk, EndOfSimulation)
    initial 
      begin
-      // ....
-	  $finish
-     end;
+      
+      #2;
+      rst = 1;
+
+      #28;
+      rst = 0;
+
+      for ( i = 0; i < 100; i = i + 1)
+       begin
+         
+         clk_en = 1;
+
+         #10;
+         clk_en = 0;
+
+         #90;
+       end
+
+       
+	    $finish
+    end
 	 
   // Always statement to drive the clock goes here
-  always 
-    begin
-	// ...
-    end
+  always #10 clk = ~clk;
 	
    // Instantiation of the gray_4bits 
   gray_4bits DUT(.clk(clk), .clk_en(ONE), .rst(rst), .gray_out(leds));   
