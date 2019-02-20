@@ -1,4 +1,4 @@
-                                              -
+
  /*
  -----------------------------------------------------------------------------
  -- File           : Gray_4bits_RTL.v
@@ -26,12 +26,12 @@
  -- --------------------------------------------------------------------------
  */ 
 
-module gray_4bits (clk, clk_en, rst, gray_out)
+module gray_4bits (clk, clk_en, rst, gray_out);
   input clk, clk_en, rst;
   output [3:0] gray_out;
   reg [3:0] state;
 
-  always @(posedge clk or rst) 
+  always @(posedge clk or posedge rst) 
    begin
      // Code to implement a 4-bit Gray code
 
@@ -44,7 +44,7 @@ module gray_4bits (clk, clk_en, rst, gray_out)
     else
       begin
       
-        case ( gray_out ):
+        case ( gray_out )
 
           4'b0000: state = 4'b0001;
           4'b0001: state = 4'b0011;
