@@ -29,10 +29,10 @@ module TB2;
       clk = 0;
 
       #2;
-      rst = 1;
+      rst = 0;
 
       #48;
-      rst = 0;
+      rst = 1;
       $display ("\nStarted simulation for %d bits...\n\n", N);
 
       for ( i = 0; i < 100; i = i + 1)
@@ -52,7 +52,7 @@ module TB2;
     end
 	 
   // Always statement to drive the clock goes here
-  always # ( cycle  / 2 ) clk = ~clk;
+  always #( `cycle  / 2 ) clk = ~clk;
 	
    // Instantiation of the gray_Nbits goes here
   gray_Nbits TOP_LEVEL (.clk ( clk ),

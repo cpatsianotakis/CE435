@@ -17,37 +17,41 @@ module gray_Nbits (clk, clk_en, rst, gray_out);
 
   reg [N : 0] state;
   reg [N : 0] toggle;
+  
+  reg [N*(N-2) : 0] is_to_toggle;
 
-    integer i;
+integer i, j;
 
 
   // The state of the Gray counter
   always @(posedge clk or negedge rst)
     begin
-	     if (rst == 1'b0) begin
+	     if (rst == 1'b0)
+	      begin
 		    // Initialize state with 1000..00
-           	state[0] = 1;
-           	for ( i = 1; i < N; i = i + 1)
-		    	     state[i] = 0;
-         end
-	     else begin
-         // Main part of code
-         if ( clk_en ) begin
-           for (i = 0; i < N; i = i + 1) 
-            begin
-             if ( toggle[i] == 1'b1) 
-                state[i] = ~state[i];
-             else 
-              state[i] = state[i];
-            end
+           state[N] = 1'b1;
+           state[N-1:0] = 0;
           end
+	     
+	     else
+	      begin
+            // Main part of code
+            if ( clk_en ) begin
+                for (i = 0; i <= N; i = i + 1) 
+                 begin
+                    if ( toggle[i] == 1'b1) 
+                        state[i] = ~state[i];
+                    else 
+                        state[i] = state[i];
+                end
+            end
         end
 		   
 	 end
   
   
   // The combinational logic produces the toggle[N:0] signals
-  always @(state) 
+  always @(*) 
     begin     
         toggle[0] <=  1'b1;
         toggle[1] <= state[0];
@@ -55,10 +59,25 @@ module gray_Nbits (clk, clk_en, rst, gray_out);
         for (i=2; i<N; i=i+1) 
   	     begin	
               // Here goes your code
-            if ( state[i-1] == 1'b1 && state[i-2:0] == 0 )
-              toggle[i] = 1'b1;
+            if ( state[i-1] == 1'b1 )
+             begin
+    
+              is_to_toggle [ N*(i-2) + i -1] = 1;
+              
+              for (j = i-2; j >= 0; j = j -1 )
+               begin
+                
+                if ( state[j] == 1'b0 )
+                    is_to_toggle[ N*(i-2) + j] <= is_to_toggle[ N*(i-2) + j + 1]; 
+                else
+                    is_to_toggle[ N*(i-2) + j] <= 0;
+               end
+               
+               toggle[i] = is_to_toggle [ N*(i-2) ];
+              
+            end
             else
-              toggle[i] = 1'b0;  
+              toggle[i] <= 1'b0;  
          end 
 
         if ( state[N-2:0] == 0 )
