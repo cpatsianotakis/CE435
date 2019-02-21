@@ -18,22 +18,47 @@ module TB2;
   integer EndOfSimulation;  
   integer i;
 
+  wire [N-1:0] gray_out;
+
   parameter ONE = 1'b1; 
 							 
   // Initial statement for signal initialization (reset, clk, EndOfSimulation)
    initial 
      begin
-      // ....
-	  $finish
-     end;
+
+      clk = 0;
+
+      #2;
+      rst = 1;
+
+      #48;
+      rst = 0;
+      $display ("\nStarted simulation for %d bits...\n\n", N);
+
+      for ( i = 0; i < 100; i = i + 1)
+       begin
+         
+         clk_en = 1;
+
+         #10;
+         clk_en = 0;
+         $display ("%b", gray_out );
+
+         #70;
+       end
+
+       
+      $finish;
+    end
 	 
   // Always statement to drive the clock goes here
-  always 
-    begin
-	// ...
-    end
+  always # ( cycle  / 2 ) clk = ~clk;
 	
    // Instantiation of the gray_Nbits goes here
+  gray_Nbits TOP_LEVEL (.clk ( clk ),
+                        .clk_en ( clk_en ),
+                        .rst ( rst ),
+                        .gray_out ( gray_out )
+  );
   
-  
-end module;
+endmodule
