@@ -3,20 +3,43 @@
 // This is the code that generates a pulse for a single cycle every "distance"
 // cycles. Note that "distance" * clock period = 1 sec
 //////////////////////////////////////////////////////////////////////////////////
-module GrayCounter_Pulse(input clk, input rst, output reg pulse);
-  parameter distance = // How much for 1 Hz when clock period is 10 ns?
-  integer counter;
+module GrayCounter_Pulse( clk, rst, pulse);
   
-  always @(posedge clk, negedge rst)
+  //parameter distance = 99; // Temp distance for simulate in order not to crache the system //
+  parameter distance = 100000000; // How much for 1 Hz when clock period is 10 ns? //
+  
+  input clk;
+  input rst;
+  output reg pulse;
+  
+  reg [26:0] counter;
+
+  
+  
+  always @(posedge clk, posedge rst)
     begin
-	     if (rst == 1'b0) 
+        if (rst == 1'b1) 
 		  begin
-			 // Your code for asynchronous reset goes here
+			 // Code for asynchronous reset goes epae //
+			 counter = 0;
+			 
 		  end
-             else
+		  
+        else
 		  begin
-			// and for regular functionality goes here
-	          end
+			// And for regular functionality goes epae //
+			if ( counter == distance )
+			  begin
+                pulse = 1'b1;
+                counter = 0;
+              end
+            else
+              begin
+                pulse = 1'b0;
+                counter = counter + 1;
+              end
+            
+          end
 	 end
 			  
 endmodule

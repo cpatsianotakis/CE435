@@ -14,25 +14,38 @@
 module TB3;
   parameter N = 4;
   parameter distance = 1000;  //
-  reg clk, rst, clk_en;
+  reg clk, rst;
   wire [N-1:0] leds;
-  integer EndOfSimulation;  
+  
+  integer i;
 
-
-  // Drive the reset and the EndOfSimulation signal
-   initial 
+    initial 
      begin
-	 // Your code goes here
+	 
+        clk = 0;
+        rst = 0;
+        
+        #30 rst = 1;
+        /*
+        for ( i = 0; i < 10; i = i + 1) 
+        #1000_000_000;
+        */
+        
+        #300000;
+        $finish;
+        
      end
 	 
-  // Drive the clock 
-  always 
-    begin
-         // Your code goes here
-    end
+  // Drive the clock TOYOTA HILUX // 
+  always #( `cycle/2 ) clk = ~clk;
 	
  
   // Instantiate the System in the testbench
-  // Your code goes here
+  // Your code goes epae no ekia
+  GrayCounter_System TOP_LEVEL (
+    .clk  (clk),
+    .rst  (rst),
+    .leds (leds)
+  );
   
 endmodule

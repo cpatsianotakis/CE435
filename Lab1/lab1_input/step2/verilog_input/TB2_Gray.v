@@ -12,7 +12,7 @@
 `define cycle 10
 
 module TB2;
-  parameter N = 4;
+  parameter N = 5;
   reg clk, rst, clk_en;
   reg [3:0] leds;
   integer EndOfSimulation;  

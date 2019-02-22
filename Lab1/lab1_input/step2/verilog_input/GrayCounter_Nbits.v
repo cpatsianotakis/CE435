@@ -5,7 +5,7 @@
  */ 
 
 module gray_Nbits (clk, clk_en, rst, gray_out);
-  parameter N = 4;
+  parameter N = 5;
   parameter SIZE =(N+1);
   parameter Zeros = {SIZE{1'b0}};
   
