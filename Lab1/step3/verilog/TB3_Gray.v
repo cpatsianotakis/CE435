@@ -23,13 +23,15 @@ module TB3;
      begin
 	 
         clk = 0;
-        rst = 0;
+        rst = 1;
         
-        #30 rst = 1;
+        #30 rst = 0;
         /*
         for ( i = 0; i < 10; i = i + 1) 
         #1000_000_000;
         */
+
+        $monitor ("%b", TOP_LEVEL.leds);
         
         #300000;
         $finish;
