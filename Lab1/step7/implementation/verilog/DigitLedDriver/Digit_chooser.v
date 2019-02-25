@@ -6,7 +6,7 @@ module Digit_chooser ( reset, clk, digit, change_value );
 	output reg change_value;
 
 	parameter N = 8;
-	parameter MAX_CTR_VALUE = 2000000; // How much periods is 20 ms for 1 ns period //
+	parameter MAX_CTR_VALUE = 1000000; // How much periods is 20 ms for 1 ns period //
 
 	reg [20:0] counter;
 
