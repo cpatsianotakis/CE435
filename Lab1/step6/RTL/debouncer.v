@@ -1,6 +1,7 @@
 // Switch Debounce Module
 // use your system clock for the clock input
 // to produce a synchronous, debounced output
+
 module debounce #(parameter DELAY=1000000)   // .01 sec with a 100 Mhz clock
 	             (input reset, clk, noisy, output reg clean);
 	              
@@ -34,7 +35,6 @@ module debounce #(parameter DELAY=1000000)   // .01 sec with a 100 Mhz clock
 		   	 	clean <= 0;
 		   	 	count <= count + 1;		
 		   	 end
-
 	   end
       
 endmodule
