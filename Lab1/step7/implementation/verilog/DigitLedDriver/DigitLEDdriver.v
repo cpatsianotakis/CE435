@@ -47,13 +47,13 @@ module DigitLEDdriver(reset, clk, value,  C, AA, AB, AC, AD, AE, AF, AG);
     .LED( U_LEDdecoded )
   );
 
-  assign AA = ( digit )? U_LEDdecoded[6] : L_LEDdecoded[6];
-  assign AB = ( digit )? U_LEDdecoded[5] : L_LEDdecoded[5];
-  assign AC = ( digit )? U_LEDdecoded[4] : L_LEDdecoded[4];
-  assign AD = ( digit )? U_LEDdecoded[3] : L_LEDdecoded[3];
-  assign AE = ( digit )? U_LEDdecoded[2] : L_LEDdecoded[2];
-  assign AF = ( digit )? U_LEDdecoded[1] : L_LEDdecoded[1];
-  assign AG = ( digit )? U_LEDdecoded[0] : L_LEDdecoded[0];
+  assign AA = ( digit )? ~U_LEDdecoded[6] : ~L_LEDdecoded[6];
+  assign AB = ( digit )? ~U_LEDdecoded[5] : ~L_LEDdecoded[5];
+  assign AC = ( digit )? ~U_LEDdecoded[4] : ~L_LEDdecoded[4];
+  assign AD = ( digit )? ~U_LEDdecoded[3] : ~L_LEDdecoded[3];
+  assign AE = ( digit )? ~U_LEDdecoded[2] : ~L_LEDdecoded[2];
+  assign AF = ( digit )? ~U_LEDdecoded[1] : ~L_LEDdecoded[1];
+  assign AG = ( digit )? ~U_LEDdecoded[0] : ~L_LEDdecoded[0];
   assign  C = digit ;
 
 

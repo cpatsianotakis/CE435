@@ -60,7 +60,6 @@ module Digit_chooser ( reset, clk, digit, change_value );
 		 	 	 begin
 		 	 		
 		 	 		change_value = 0;
-		 	 		digit = digit;	
 		 	 		counter = counter + 1;
 
 		 	 	end

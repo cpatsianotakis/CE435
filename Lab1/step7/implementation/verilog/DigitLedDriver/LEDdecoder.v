@@ -17,6 +17,8 @@ output reg [6:0] LED;
 
 reg [3:0]  in_char;
 
+reg dokimh;
+
 integer i;
 
 always @( char ) 

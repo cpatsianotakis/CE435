@@ -38,9 +38,7 @@ integer i, j;
                 for (i = 0; i <= N; i = i + 1) 
                  begin
                     if ( toggle[i] == 1'b1) 
-                        state[i] <= ~state[i];
-                    else 
-                        state[i] <= state[i];
+                      state[i] <= ~state[i];
                 end
             end
         end
@@ -68,8 +66,6 @@ integer i, j;
              begin
                 if ( state[j] == 1'b1 )
                   toggle[i] = 1'b0; 
-                else
-                  toggle[i] = toggle[i];
              end
 
            end
@@ -83,7 +79,7 @@ integer i, j;
 
     end
 	  
-    assign gray_out=state[N:1];
+    assign gray_out = state[N:1];
 	 
 endmodule
 
