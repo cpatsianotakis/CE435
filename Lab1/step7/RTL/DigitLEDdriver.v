@@ -9,6 +9,7 @@
 *	Module to check for metastabilities and bouncing from external environment.
 */
 
+
 module DigitLEDdriver(reset, clk, value,  C, AA, AB, AC, AD, AE, AF, AG);
 
   parameter N = 8;
@@ -46,6 +47,7 @@ module DigitLEDdriver(reset, clk, value,  C, AA, AB, AC, AD, AE, AF, AG);
     .char( saved_value[N-1:4] ), 
     .LED( U_LEDdecoded )
   );
+
 
   assign AA = ( digit )? ~U_LEDdecoded[6] : ~L_LEDdecoded[6];
   assign AB = ( digit )? ~U_LEDdecoded[5] : ~L_LEDdecoded[5];
