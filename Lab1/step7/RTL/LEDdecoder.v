@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////////////////////
+// University      : University of Thessaly
+// Department      : Electrical & Computer Engineering
+// Course          : CE435 - Embedded Systems
+// ----------------------------------------------------------------------
+// -----------[Team's Data]----------------------------------------------
+// Full Names       : Panagiotis Anastasiadis | Charalampos Patsianotakis        
+// E-Mails          : paanastasiadis@uth.gr   | cpatsianotakis@uth.gr
+//////////////////////////////////////////////////////////////////////////
+
 /*	LEDdecoder module
 *
 *	Takes input a N-bits binary value and decodes it in order to get

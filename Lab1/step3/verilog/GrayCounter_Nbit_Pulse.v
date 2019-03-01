@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////////////////////
+// University      : University of Thessaly
+// Department      : Electrical & Computer Engineering
+// Course          : CE435 - Embedded Systems
+// ----------------------------------------------------------------------
+// -----------[Team's Data]----------------------------------------------
+// Full Names       : Panagiotis Anastasiadis | Charalampos Patsianotakis        
+// E-Mails          : paanastasiadis@uth.gr   | cpatsianotakis@uth.gr
+//////////////////////////////////////////////////////////////////////////
+
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // This is the code that generates a pulse for a single cycle every "distance"

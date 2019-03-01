@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////////////////////
+// University      : University of Thessaly
+// Department      : Electrical & Computer Engineering
+// Course          : CE435 - Embedded Systems
+// ----------------------------------------------------------------------
+// -----------[Team's Data]----------------------------------------------
+// Full Names       : Panagiotis Anastasiadis | Charalampos Patsianotakis        
+// E-Mails          : paanastasiadis@uth.gr   | cpatsianotakis@uth.gr
+//////////////////////////////////////////////////////////////////////////
+
 /*  GrayCounter_Nbit_Pulse module
 *
 * This module is generates the pulse, in order to change the GrayCounter value

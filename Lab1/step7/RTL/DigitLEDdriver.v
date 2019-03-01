@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////////////////////
+// University      : University of Thessaly
+// Department      : Electrical & Computer Engineering
+// Course          : CE435 - Embedded Systems
+// ----------------------------------------------------------------------
+// -----------[Team's Data]----------------------------------------------
+// Full Names       : Panagiotis Anastasiadis | Charalampos Patsianotakis        
+// E-Mails          : paanastasiadis@uth.gr   | cpatsianotakis@uth.gr
+//////////////////////////////////////////////////////////////////////////
+
 /*	DigitLEDdriver module
 *
 *	  This module is the top level module, of the Pmod SSD 7-Segment Driver, in order

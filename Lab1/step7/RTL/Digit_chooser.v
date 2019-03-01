@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////////////////////
+// University      : University of Thessaly
+// Department      : Electrical & Computer Engineering
+// Course          : CE435 - Embedded Systems
+// ----------------------------------------------------------------------
+// -----------[Team's Data]----------------------------------------------
+// Full Names       : Panagiotis Anastasiadis | Charalampos Patsianotakis        
+// E-Mails          : paanastasiadis@uth.gr   | cpatsianotakis@uth.gr
+//////////////////////////////////////////////////////////////////////////
+
 /*	Digit_chooser module
 *
 *	This module is actually a counter which changes the value of "digit" output
