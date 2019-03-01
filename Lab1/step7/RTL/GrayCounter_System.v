@@ -23,21 +23,31 @@ module GrayCounter_System(clk, rst, button, leds, Display_C, Display_AA, Display
   input clk, rst, button;
   output [N-1:0] leds;
   output Display_C, Display_AA, Display_AB, Display_AC, Display_AD, Display_AE, Display_AF, Display_AG;
-  wire pulse, clean_button;
+  wire pulse, button_state, button_posedge ;
     
   // Instantiation of the GrayCounter_Pulse 
   // Here
-	debounce debounce_INST (
+  debouncer_state debouncer_state_INST (
     .reset( rst ),
     .clk( clk ),
     .noisy( button ),
-    .clean( clean_button )
+    .clean( button_state )
   );
+  
+  debouncer_posedge debouncer_posedge_INST (
+    .reset ( rst ),
+    .clk ( clk ),
+    .input_status ( button_state ),
+    .clean ( button_posedge )
+  );
+  
+  
 
   GrayCounter_Pulse pulser_INST (
     .clk ( clk ),
     .rst ( rst ),
-    .button ( clean_button ),
+    .button_state ( button_state ),
+    .button_posedge ( button_posedge ),
     .pulse ( pulse )
   );
 

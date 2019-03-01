@@ -3,7 +3,7 @@
 // This is the code that generates a pulse for a single cycle every "distance"
 // cycles. Note that "distance" * clock period = 1 sec
 //////////////////////////////////////////////////////////////////////////////////
-module GrayCounter_Pulse( clk, rst, button, pulse);
+module GrayCounter_Pulse( clk, rst, button_state, button_posedge, pulse);
                              
 
 //parameter INIT_DISTANCE     = 1000000; // TEST //
@@ -14,7 +14,8 @@ module GrayCounter_Pulse( clk, rst, button, pulse);
   
   input clk;
   input rst;
-  input button;
+  input button_state;
+  input button_posedge;
   output reg pulse;
   
   reg [26:0] counter;
@@ -33,19 +34,19 @@ module GrayCounter_Pulse( clk, rst, button, pulse);
         else
 		  begin
 			// And for regular functionality goes epae //
-  			if ( counter == distance )
+  			if ( counter == distance || button_posedge == 1'b1 )
   			  begin
               pulse = 1'b1;
               counter = 0;
 
-              if ( button == 1'b1 ) begin
+              if ( button_state == 1'b1 ) begin
 
                 if ( distance > MID_DISTANCE ) 
                 
                   distance = distance >> 1;
 
-				        else if ( distance > FINAL_DISTANCE )
-				          distance = distance - MINIMIZE_DISTANCE;
+                else if ( distance > FINAL_DISTANCE )
+                    distance = distance - MINIMIZE_DISTANCE;
                 else
                   distance = distance;
               end
@@ -56,7 +57,7 @@ module GrayCounter_Pulse( clk, rst, button, pulse);
         else
             begin
 
-              if ( button == 1'b1 ) begin
+              if ( button_state == 1'b1 ) begin
                 distance = distance;
 
               	pulse = 1'b0;
