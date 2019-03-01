@@ -1,10 +1,7 @@
 /*	LEDdecoder module
 *
-*	University of Thessaly 
-*	Electrical and Computer Engineering Department
-*	CE435 Course
-*
-*	Patsianotakis Charalampos cpatsianotakis@uth.gr
+*	Takes input a N-bits binary value and decodes it in order to get
+*	displayed at a general 7-Segment Display
 *
 */
 
@@ -17,22 +14,25 @@ output reg [6:0] LED;
 
 reg [3:0]  in_char;
 
-reg dokimh;
-
 integer i;
 
+
+// Make the N-bits input to 8-bit state //
 always @( char ) 
  begin
 	
+	// The first N bits //
 	for ( i = 0; i < N; i = i + 1 )
 		in_char [i] <= char [i];
 
+	// The last 8-N bits get zero (to get the correct output in displater ) //
 	for ( i = N; i < 4; i = i + 1 )
 		in_char [i] <= 1'b0;
 
  end
 
 
+// Decode Gray-Counter value to encryption for 7-segment display //
  always @( in_char )
   begin
  	

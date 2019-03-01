@@ -1,15 +1,17 @@
- /*
- -----------------------------------------------------------------------------
- -- File           : Gray_Nbits_RTL.v
- -----------------------------------------------------------------------------
- */ 
+/* gray_Nbits module
+*
+* This module is a gray code counter for N bits (given as parameter, default is 8)
+*
+* In order to change the value, clk_en must been set as 1. When rst is activated the value
+* of the counter is 1000...00 (easier for debugging).
+*
+*/
 
 module gray_Nbits (clk, clk_en, rst, gray_out);
   parameter N = 8;
   parameter SIZE =(N+1);
   parameter Zeros = {SIZE{1'b0}};
   
-  // Place the definition of wires and regs here
   input clk;
   input clk_en;
   input rst;
@@ -54,7 +56,6 @@ integer i, j;
 
         for (i=2; i<N; i=i+1) 
   	     begin	
-              // Here goes your code
 
           for ( j = i - 1; j >= 0; j = j - 1 )
            begin

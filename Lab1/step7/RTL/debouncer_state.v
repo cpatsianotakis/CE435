@@ -1,6 +1,13 @@
-// Switch Debounce Module
-// use your system clock for the clock input
-// to produce a synchronous, debounced output
+/*	debouncer_state module
+*
+*	This module filters the mechanic input of a button to what the
+*	design waited for. What is meant, is that the button, as it has mechanic
+*	particions, the input given is not clearly 1 or 0, but has some oscillations.
+*
+*	This is filltered, by recongizing them (they have not static value), and rejecting
+*	them. When the value is permanently at 1, then it gives output the 1 signal.
+*
+*/
 module debouncer_state #(parameter DELAY=1000000)   // .01 sec with a 100 Mhz clock
 	             (input reset, clk, noisy, output reg clean);
 	              

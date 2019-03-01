@@ -1,8 +1,10 @@
-// Switch Debounce Module
-// use your system clock for the clock input
-// to produce a synchronous, debounced output
-module debouncer_posedge
-	             (input reset, clk, input_status, output reg clean);
+/* signal_posedge Module
+* 
+*	This module detects the positive edge of the input_status
+*	and holds at 1 for 1 clock period the clean output
+*/
+
+module signal_posedge (input reset, clk, input_status, output reg clean);
 	              
    reg new;
 

@@ -1,23 +1,13 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date:    18:50:26 02/04/2010 
-// Design Name: 
-// Module Name:    GrayCounter_System 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: Instantiation of the GrayCounter_Nbits and GrayCounter_Pulse models
-//
-//////////////////////////////////////////////////////////////////////////////////
+/*  GrayCounter_System module
+*
+* Top level module of RTL of the project. Counts a N bits value in Gray Code
+* and displays it in a stream of leds and also the hex value in a 7-segment display.
+*
+* In order to go to the next value, a button must be pressed. While this button is
+* pressed, the speed of the exchanges, increases.
+*
+*/
+
 module GrayCounter_System(clk, rst, button, leds, Display_C, Display_AA, Display_AB, Display_AC, Display_AD, Display_AE, Display_AF, Display_AG);
   parameter N = 8;
   input clk, rst, button;
@@ -34,7 +24,7 @@ module GrayCounter_System(clk, rst, button, leds, Display_C, Display_AA, Display
     .clean( button_state )
   );
   
-  debouncer_posedge debouncer_posedge_INST (
+  signal_posedge signal_posedge_INST (
     .reset ( rst ),
     .clk ( clk ),
     .input_status ( button_state ),
