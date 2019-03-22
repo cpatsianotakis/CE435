@@ -1,0 +1,7 @@
+00:57:16 **** Clean-only build of configuration Debug for project CoreMark_rKernels ****
+make clean 
+rm -rf  ./src/OFF_f.o ./src/alg_division.o ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/cube_cover_2.o ./src/custom_ls_less.o ./src/distance_2.o ./src/graph_operations.o ./src/intersect_2.o ./src/main.o ./src/r_kernels.o ./src/sharp.o ./src/sharp_2.o ./src/supercube_2.o ./src/timer_util.o  ./src/OFF_f.d ./src/alg_division.d ./src/core_list_join.d ./src/core_matrix.d ./src/core_state.d ./src/core_util.d ./src/cube_cover_2.d ./src/custom_ls_less.d ./src/distance_2.d ./src/graph_operations.d ./src/intersect_2.d ./src/main.d ./src/r_kernels.d ./src/sharp.d ./src/sharp_2.d ./src/supercube_2.d ./src/timer_util.d  CoreMark_rKernels.elf.size  CoreMark_rKernels.elf
+ 
+
+00:57:16 Build Finished (took 73ms)
+

@@ -1,0 +1,392 @@
+10:54:15 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  47024	   2272	2111640	2160936	 20f928	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+10:54:20 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+10:54:43 **** Incremental Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+10:54:43 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  47024	   2272	2111640	2160936	 20f928	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+10:54:43 **** Incremental Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+10:54:46 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+10:55:19 **** Incremental Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+10:55:19 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  47024	   2272	2111640	2160936	 20f928	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+10:55:19 **** Incremental Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+10:55:25 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:05:50 **** Incremental Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:05:50 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+../src/test2.c: In function 'main':
+../src/test2.c:147:10: warning: 'time_result3' is used uninitialized in this function [-Wuninitialized]
+  whole = time_in_secs(time_result3);
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/test2.c:175:10: warning: 'time_result4' is used uninitialized in this function [-Wuninitialized]
+  whole = time_in_secs(time_result4);
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48100	   2272	2111640	2162012	 20fd5c	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+11:05:50 **** Incremental Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:06:22 **** Incremental Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:06:23 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48100	   2272	2111640	2162012	 20fd5c	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+11:06:23 **** Incremental Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:06:27 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:07:12 **** Incremental Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:07:12 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48100	   2272	2111640	2162012	 20fd5c	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+11:07:13 **** Incremental Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:07:15 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:08:17 **** Incremental Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:08:17 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48100	   2272	2111640	2162012	 20fd5c	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+11:08:18 **** Incremental Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:08:24 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:16:00 **** Incremental Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:16:00 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48100	   2272	2111640	2162012	 20fd5c	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+11:16:01 **** Incremental Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:16:22 **** Auto Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:16:25 **** Auto Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:16:27 **** Auto Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:16:33 **** Incremental Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:16:33 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:16:33 **** Incremental Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:16:36 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:17:49 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48100	   2272	2111640	2162012	 20fd5c	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+11:19:13 **** Incremental Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:19:14 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48100	   2272	2111640	2162012	 20fd5c	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+11:19:14 **** Incremental Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:19:22 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:22:56 **** Incremental Build of configuration Debug for project CoreMark_test_cpu ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:22:56 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/test2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -D ITERATIONS=20000 -DPERFORMANCE_RUN=1 -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/test2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../CoreMark_v2_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/test2.d" -MT"src/test2.o" -o "src/test2.o" "../src/test2.c"
+Finished building: ../src/test2.c
+ 
+Building target: CoreMark_v2.elf
+Invoking: ARM v7 gcc linker
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../CoreMark_v2_bsp/ps7_cortexa9_0/lib -o "CoreMark_v2.elf"  ./src/core_list_join.o ./src/core_matrix.o ./src/core_state.o ./src/core_util.o ./src/test2.o ./src/timer_util.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+Finished building target: CoreMark_v2.elf
+ 
+Invoking: ARM v7 Print Size
+arm-none-eabi-size CoreMark_v2.elf  |tee "CoreMark_v2.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  48092	   2272	2111640	2162004	 20fd54	CoreMark_v2.elf
+Finished building: CoreMark_v2.elf.size
+ 
+11:22:56 **** Incremental Build of configuration Debug for project lab2_interrupt_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+11:23:03 **** Incremental Build of configuration Debug for project CoreMark_v2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.

@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "coremark.h"
+#include "timer_util.h"
+#include "xparameters.h"
+#include "xscutimer.h"
+#include "xil_printf.h"
+
+int main()
+{
+	
+	int table[10][10];
+	int in_vector[10];
+	int out_vector[10];
+
+	int i ,j;
+
+	size_t time_result;
+
+	srand((int)time(NULL));
+
+	start_timer();
+
+	for ( i = 0; i < 10; i++ )
+	{
+
+		in_vector[i] = rand() % 100;
+		out_vector[i] = 0;
+		for ( j = 0; j < 10; j++ )
+		{
+			table[i][j] = rand() % 100;
+		}
+	}
+
+
+	for ( i = 0; i < 10; i++ )
+	{
+		for ( j = 0; j < 10; j++ )
+		{
+			out_vector[i] = out_vector[i] + table[i][j] * in_vector[j];
+		}
+	}
+
+	stop_timer();
+	time_result = read_timer();
+
+	for ( i = 0; i < 10; i++ )
+	{
+		xil_printf("| %d |  |", in_vector[i]);
+
+		for ( j = 0; j < 10; j++ )
+		{
+			xil_printf(" %d ", table[i][j]);
+		}
+
+		xil_printf("|         | %d |\n", out_vector);
+	}
+
+	xil_printf("\n\nTotal time was: %llf\n\n", time_result);
+
+	return (0);
+
+}
