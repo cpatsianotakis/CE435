@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:36:41 MST 2018
+# 
+# Start of session at: Thu Mar 28 20:56:33 2019
+# Process ID: 25405
+# Current directory: /home/jesterhead1924/Documents/CE435-Embedded_Systems/Labs/vivado-projects/lab3_step3/lab2_simple_arm.sdk/webtalk
+# Command line: wbtcv -mode batch -source sdk_webtalk.tcl
+# Log file: /home/jesterhead1924/Documents/CE435-Embedded_Systems/Labs/vivado-projects/lab3_step3/lab2_simple_arm.sdk/webtalk/webtalk.log
+# Journal file: /home/jesterhead1924/Documents/CE435-Embedded_Systems/Labs/vivado-projects/lab3_step3/lab2_simple_arm.sdk/webtalk/webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl
