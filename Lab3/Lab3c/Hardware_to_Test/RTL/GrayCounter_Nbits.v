@@ -1,46 +1,36 @@
-//////////////////////////////////////////////////////////////////////////
-// University      : University of Thessaly
-// Department      : Electrical & Computer Engineering
-// Course          : CE435 - Embedded Systems
-// ----------------------------------------------------------------------
-// -----------[Team's Data]----------------------------------------------
-// Full Names       : Panagiotis Anastasiadis | Charalampos Patsianotakis        
-// E-Mails          : paanastasiadis@uth.gr   | cpatsianotakis@uth.gr
-//////////////////////////////////////////////////////////////////////////
-
- /*
- -----------------------------------------------------------------------------
- -- File           : Gray_Nbits_RTL.v
- -----------------------------------------------------------------------------
- */ 
+/* gray_Nbits module
+*
+* This module is a gray code counter for N bits (given as parameter, default is 8)
+*
+* In order to change the value, clk_en must been set as 1. When rst is activated the value
+* of the counter is 1000...00 (easier for debugging).
+*
+*/
 
 module gray_Nbits (clk, clk_en, rst, gray_out);
-  parameter N = 4;
+  parameter N = 8;
   parameter SIZE =(N+1);
   parameter Zeros = {SIZE{1'b0}};
   
-  // Place the definition of wires and regs here
   input clk;
   input clk_en;
   input rst;
-  output [N:0] gray_out;
+  output [N-1:0] gray_out;
 
   reg [N : 0] state;
   reg [N : 0] toggle;
   
-  reg [N*(N-2) : 0] is_to_toggle;
-
 integer i, j;
 
 
   // The state of the Gray counter
-  always @(posedge clk or negedge rst)
+  always @(posedge clk or posedge rst)
     begin
-	     if (rst == 1'b0)
+	     if (rst == 1'b1)
 	      begin
 		    // Initialize state with 1000..00
-           state[N] = 1'b1;
-           state[N-1:0] = 0;
+           state[N] <= 1'b1;
+           state[N-1:0] <= 0;
           end
 	     
 	     else
@@ -50,9 +40,7 @@ integer i, j;
                 for (i = 0; i <= N; i = i + 1) 
                  begin
                     if ( toggle[i] == 1'b1) 
-                        state[i] = ~state[i];
-                    else 
-                        state[i] = state[i];
+                      state[i] <= ~state[i];
                 end
             end
         end
@@ -63,31 +51,26 @@ integer i, j;
   // The combinational logic produces the toggle[N:0] signals
   always @(*) 
     begin     
-        toggle[0] <=  1'b1;
-        toggle[1] <= state[0];
+        toggle[0] =  1'b1;
+        toggle[1] = state[0];
 
         for (i=2; i<N; i=i+1) 
   	     begin	
-              // Here goes your code
-            if ( state[i-1] == 1'b1 )
+
+          for ( j = i - 1; j >= 0; j = j - 1 )
+           begin
+             
+             if ( j == i - 1 )
+                toggle[i] = state[j];
+
+            else 
              begin
-    
-              is_to_toggle [ N*(i-2) + i -1] = 1;
-              
-              for (j = i-2; j >= 0; j = j -1 )
-               begin
-                
-                if ( state[j] == 1'b0 )
-                    is_to_toggle[ N*(i-2) + j] <= is_to_toggle[ N*(i-2) + j + 1]; 
-                else
-                    is_to_toggle[ N*(i-2) + j] <= 0;
-               end
-               
-               toggle[i] = is_to_toggle [ N*(i-2) ];
-              
-            end
-            else
-              toggle[i] <= 1'b0;  
+                if ( state[j] == 1'b1 )
+                  toggle[i] = 1'b0; 
+             end
+
+           end
+
          end 
 
         if ( state[N-2:0] == 0 )
@@ -97,6 +80,9 @@ integer i, j;
 
     end
 	  
-    assign gray_out=state[N:1];
+    assign gray_out = state[N:1];
 	 
 endmodule
+
+
+

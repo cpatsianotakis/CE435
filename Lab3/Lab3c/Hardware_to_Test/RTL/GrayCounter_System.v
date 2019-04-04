@@ -1,51 +1,54 @@
-//////////////////////////////////////////////////////////////////////////
-// University      : University of Thessaly
-// Department      : Electrical & Computer Engineering
-// Course          : CE435 - Embedded Systems
-// ----------------------------------------------------------------------
-// -----------[Team's Data]----------------------------------------------
-// Full Names       : Panagiotis Anastasiadis | Charalampos Patsianotakis        
-// E-Mails          : paanastasiadis@uth.gr   | cpatsianotakis@uth.gr
-//////////////////////////////////////////////////////////////////////////
+/*  GrayCounter_System module
+*
+* Top level module of RTL of the project. Counts a N bits value in Gray Code
+* and displays it in a stream of leds and also the hex value in a 7-segment display.
+*
+* In order to go to the next value, a button must be pressed. While this button is
+* pressed, the speed of the exchanges, increases.
+*
+*/
 
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Design Name: 
-// Module Name:    GrayCounter_System 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: Instantiation of the GrayCounter_Nbits and GrayCounter_Pulse models
-//
-// We made this excersise drinking raki beacause so...
-//
-//////////////////////////////////////////////////////////////////////////////////
-module GrayCounter_System(clk, rst, enable, leds);
-  parameter N = 4;
-  parameter distance = 100000000; // How much for 1 Hz when clk period is 10 ns? //
-  input clk, rst, enable;
+module GrayCounter_System(clk, button1, button2, leds);
+  parameter N = 8;
+  input clk, button1, button2;
   output [N-1:0] leds;
-  wire pulse, pulse_enabled;
+  wire pulse, button_state, button_posedge ;
+  wire rst, button;
     
   // Instantiation of the GrayCounter_Pulse 
-  // Epae
-  GrayCounter_Pulse Pulser_INST (
-    .clk (clk),
-    .rst (rst),
-    .pulse (pulse)
+  // Here
+  debouncer_state debouncer_state_INST (
+    .reset( rst ),
+    .clk( clk ),
+    .noisy( button ),
+    .clean( button_state )
+  );
+
+  translator translator_INST(
+    .in_button1 (button1),
+    .in_button2 (button2),
+    .sys_button (button),
+    .sys_reset  (reset)
   );
   
-	assign pulse_enabled = enable & pulse;
+  signal_posedge signal_posedge_INST (
+    .reset ( rst ),
+    .clk ( clk ),
+    .input_status ( button_state ),
+    .clean ( button_posedge )
+  );
   
+  
+
+  GrayCounter_Pulse pulser_INST (
+    .clk ( clk ),
+    .rst ( rst ),
+    .button_state ( button_state ),
+    .button_posedge ( button_posedge ),
+    .pulse ( pulse )
+  );
+
+
   // Instantiation of the gray_Nbits 
   // Epae
   gray_Nbits Counter_INST (
