@@ -34,7 +34,7 @@ module accelerator_tb;
 		enable = 0;
 
 		for ( i = 0; i < TEST_MAX_SIZE; i = i + 1)
-			#CLK_PERIOD in_data = 1;
+			#CLK_PERIOD in_data = i*2;
 
 		$display ("Result:\n");
 		$monitor ("[%d]\n", out_data);

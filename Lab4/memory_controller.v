@@ -18,10 +18,11 @@ parameter STATE_RECEIVE_DATA  = 3'b011;
 parameter STATE_COMPUTATION   = 3'b010;
 parameter STATE_TRANSMIT_DATA = 3'b110;
 
- reg [31 : 0] x_vector [0 : MAX-1];
- reg [31 : 0] y_vector [0 : MAX-1];
- reg [31 : 0] x_vector_multi [0 : MAX-1];
- reg [31 : 0] array [0 : MAX*MAX - 1];
+parameter A_const = 2;
+
+reg [31 : 0] x_vector [0 : MAX-1];
+reg [31 : 0] y_vector [0 : MAX-1];
+reg [31 : 0] x_vector_multi [0 : MAX-1];
 
 reg [2:0] state;
 reg [2:0] next_state;
@@ -37,12 +38,6 @@ begin
 	if (reset)
 	begin
 		state = STATE_IDLE;
-		
-		for (i = 0; i < MAX; i = i + 1) begin
-            for (j = 0; j < MAX; j = j + 1) begin
-                array[i*MAX + j] = 2;
-            end
-        end
 		
 	end
 	else
@@ -131,21 +126,18 @@ begin
 	endcase
 end
 
-always @(*)
+always @( state or y_vector )
 begin
 
 	if ( state == STATE_COMPUTATION ) 
 	begin
 
-		for ( i = 0; i < MAX; i = i + 1 )
-		begin
-		
+		for ( i = 0; i < max_size; i = i + 1)
 			x_vector_multi[i] = x_vector[i] * x_vector[i];
-			
-			for ( j = 0; j < MAX; j = j + 1)
-				y_vector[i] = y_vector[i] + ( array[i][j] * x_vector_multi[j] );
 
-		end
+		for ( i = 0; i < max_size; i = i + 1 )
+			y_vector[i] = A_const * x_vector_multi[i] ;
+
 	end
 	else if ( state == STATE_IDLE )
 	   for ( i = 0; i < MAX; i = i + 1)
@@ -153,6 +145,15 @@ begin
             y_vector[i] = 0;
             x_vector_multi[i] = 0;
        end
+    else
+	begin
+    	for ( i = 0; i < MAX; i = i + 1)
+	   begin
+            y_vector[i] = y_vector[i];
+            x_vector_multi[i] = x_vector_multi[i];
+       end
+
+    end
 
 end
 	
