@@ -9,7 +9,7 @@ module accelerator_tb;
 	reg enable;
 
 	wire [31:0] out_data;
-	wire trigger;
+	reg trigger_computation;
 
 	integer i;
 
@@ -19,6 +19,7 @@ module accelerator_tb;
 		clk  = 0;
 		reset = 0;
 		enable = 0;
+		trigger_computation = 0;
 
 		#2;
 		reset = 1;
@@ -33,17 +34,26 @@ module accelerator_tb;
 		in_data = TEST_MAX_SIZE;
 		enable = 0;
 
-		for ( i = 0; i < TEST_MAX_SIZE; i = i + 1)
-			#CLK_PERIOD in_data = i*2;
+		for ( i = 0; i < TEST_MAX_SIZE; i = i + 1) begin
+			#CLK_PERIOD in_data = i + 1;
+		end
+		
+		#(CLK_PERIOD*3);
+		trigger_computation = 1;
+
+		#CLK_PERIOD;
+		trigger_computation = 0;
+
+
 
 		$display ("Result:\n");
 		$monitor ("[%d]\n", out_data);
-		$monitor ("Trigger enabled to %d", trigger);
+		$monitor ("Trigger enabled to %d", trigger_computation);
 
 	end
 
 
-	accelerator accelerator_0 (clk, reset, in_data, enable, out_data, trigger);
+	accelerator accelerator_0 (clk, reset, in_data, enable, trigger_computation, 1'b1, 1'b1, out_data, valid_output );
 
 	always #(CLK_PERIOD/2) clk = ~clk;
 endmodule
